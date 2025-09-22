@@ -9,7 +9,7 @@ import type { ImgHTMLAttributes } from "react";
  * Props są celowo proste – to ma być drop-in do hero.
  */
 type Props = {
-  src: string;
+  src?: string;
   alt?: string;
   /** Podbij LCP: <img loading="eager"> w warstwie głównej. */
   priority?: boolean;
@@ -20,8 +20,8 @@ type Props = {
 } & Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "alt" | "loading">;
 
 export default function BrandBanner({
-  src,
-  alt = "Logo",
+  src = `${import.meta.env.BASE_URL}logo.jpeg`, // domyślne logo z public/
+  alt = "Logo PRO-SHOOTING",
   priority,
   maxWidthClass = "max-w-[1200px]",
   // mobile 16/9 (bezpiecznie), na md ciaśniej – 11/7 – wygląda bardziej „banerowo”
@@ -48,7 +48,7 @@ export default function BrandBanner({
         "
       />
 
-      {/* TŁO – wypełnia szerokość, rozmyte; redukcja intensywności dla motion-reduce */}
+      {/* TŁO – wypełnia szerokość, rozmyte */}
       <img
         src={src}
         alt=""
@@ -78,7 +78,7 @@ export default function BrandBanner({
         />
       </div>
 
-      {/* Miękka winieta, żeby krawędzie nie były „twarde” */}
+      {/* Miękka winieta */}
       <div
         aria-hidden
         className="

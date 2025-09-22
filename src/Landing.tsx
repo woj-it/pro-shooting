@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 import SkipLink from "./components/SkipLink";
 import { useReveal } from "./hooks/useReveal";
 
-const logoPath = "/src/assets/logo.jpeg";
+const logoPath = "/logo.jpeg";
 
 export default function Landing() {
   // Hooki muszą być wewnątrz komponentu – tu uruchamiamy „reveal on scroll”
